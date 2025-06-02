@@ -9,7 +9,7 @@ const Hero = () => {
     const containerRef = useRef<HTMLElement>(null)
 
     const scrollToNext = () => {
-        const nextSection = document.querySelector('#about')
+        const nextSection = document.querySelector('#experience')
         if (nextSection) {
             nextSection.scrollIntoView({ behavior: 'smooth' })
         }
@@ -58,6 +58,8 @@ const Hero = () => {
         >
             {/* Three.js Background */}
             <ThreeBackground />
+            {/* Background Overlay */}
+                <div className="absolute bottom-0 left-0 w-full h-4/12 bg-gradient-to-t from-black to-transparent pointer-events-none"></div>
 
             {/* Main Content */}
             <div className="relative z-10">
@@ -65,12 +67,12 @@ const Hero = () => {
                     variants={containerVariants}
                     initial="hidden"
                     animate="visible"
-                    className="max-w-7xl mx-auto px-6 lg:px-8 pt-16 lg:pt-24"
+                    className="max-w-7xl mx-auto px-6 lg:px-8 pt-16 lg:pt-24 "
                 >
                     {/* Main Typography - CREATIVE DEVELOPER */}
                     <div className="mb-16">
                         <motion.div variants={slideUp}>
-                            <h1 className="text-white font-black leading-none tracking-tight mb-4">
+                            <h1 className="text-white font-black leading-none tracking-tight">
                                 <div
                                     className="text-7xl md:text-8xl lg:text-9xl xl:text-[12rem] 2xl:text-[14rem]"
                                     style={{
@@ -115,11 +117,11 @@ const Hero = () => {
                         {/* Left Side - Description */}
                         <motion.div variants={slideRight} className="mb-12 lg:mb-0">
                             <div className="space-y-6">
-                                <p className="text-gray-500 text-sm lg:text-base tracking-widest font-light">
+                                <p className="text-gray-300 text-sm lg:text-base tracking-widest font-light">
                                     SCALABLE WEB SOLUTIONS.
                                 </p>
 
-                                <div className="w-20 h-px bg-gray-600"></div>
+                                <div className="w-20 h-px bg-gray-300"></div>
                             </div>
                         </motion.div>
 
@@ -140,20 +142,11 @@ const Hero = () => {
                             </motion.button>
                         </motion.div>
                     </div>
+
                 </motion.div>
+                
             </div>
 
-            {/* Subtle Grid Pattern */}
-            <div
-                className="absolute inset-0 opacity-5 pointer-events-none"
-                style={{
-                    backgroundImage: `
-            linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
-          `,
-                    backgroundSize: '60px 60px'
-                }}
-            />
         </section>
     )
 }

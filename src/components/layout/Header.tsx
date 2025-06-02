@@ -2,13 +2,11 @@
 
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { useTheme } from 'next-themes'
-import { Menu, X, Sun, Moon, Code } from 'lucide-react'
+import { Code } from 'lucide-react'
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [scrolled, setScrolled] = useState(false)
-    const { theme, setTheme } = useTheme()
     const [mounted, setMounted] = useState(false)
 
     useEffect(() => {
@@ -45,7 +43,7 @@ const Header = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-                    ? 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-lg'
+                    ? 'bg-white/90 dark:bg-black backdrop-blur-md shadow-lg'
                     : 'bg-transparent'
                 }`}
         >
@@ -77,24 +75,7 @@ const Header = () => {
                         ))}
                     </div>
 
-                    {/* Theme Toggle & Mobile Menu */}
-                    <div className="flex items-center space-x-4">
-                        <motion.button
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.9 }}
-                            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                            className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
-                        >
-                            {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-                        </motion.button>
-
-                        <button
-                            onClick={() => setIsMenuOpen(!isMenuOpen)}
-                            className="md:hidden p-2 text-gray-700 dark:text-gray-300"
-                        >
-                            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-                        </button>
-                    </div>
+                    
                 </div>
 
                 {/* Mobile Navigation */}

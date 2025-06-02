@@ -47,7 +47,7 @@ const About = () => {
   ]
 
   return (
-    <section id="about" className="py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
+    <section id="about" className="py-20 bg-gray-50 dark:bg-black transition-colors duration-300">
       <div className="container mx-auto px-6">
         <motion.div
           ref={ref}
@@ -102,7 +102,7 @@ const About = () => {
                   key={stat.label}
                   variants={itemVariants}
                   whileHover={{ scale: 1.05 }}
-                  className="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg text-center"
+                  className="bg-white dark:bg-gray-700/50 p-6 rounded-xl shadow-lg text-center"
                 >
                   <stat.icon className="w-10 h-10 text-blue-600 dark:text-blue-400 mx-auto mb-3" />
                   <div className="text-3xl font-bold text-gray-900 dark:text-white mb-1">
